@@ -1,11 +1,16 @@
-# ZoomRestAPI
-Quick PHP Example Containing Various API Calls For Zoom
+# Intro
+Zoom is a web bbased video conferencing service. The following goes over the various API calls that [Zoom](https://zoom.us) provides.
 
-# Introduction
-The following will be a base code source for quick examples for the Zoom REST API. 
+# Installation
+Simply provide the API Key and secret for your account to make API calls. See [Zoom Documentation](https://support.zoom.us/hc/en-us/articles/201363043-Getting-Started-with-REST-API) for further details.
 
-# Requirements
-To use this, you must have a valid
-* API Key
-* API Secret
-For information on the, please see [Zoom's REST API Documentation](https://support.zoom.us/hc/en-us/articles/201363043-Getting-Started-with-REST-API)
+# Summary
+Zoom's REST API allows for robust management of 
+* Meetings
+* Users
+* Reports
+* Groups
+* Recordings
+* Webinars
+
+This allows for complete control of the pre/post meeting experience from your own web-page.
