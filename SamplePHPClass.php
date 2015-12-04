@@ -1,6 +1,5 @@
 <?php
 /*Zoom Support*/
-/*Last Edit 12/4/15*/
 
 class ZoomAPI{
 
