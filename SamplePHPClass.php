@@ -49,6 +49,7 @@ class ZoomAPI{
 		/*Return the data in JSON format*/
 		return json_encode($response);
 	}
+	
 	/*The following contains all possible 
 	parameters for each API call. Please check
 	Zoom documentation for which parameters can be
