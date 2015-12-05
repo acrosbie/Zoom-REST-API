@@ -1,4 +1,5 @@
-<html lang="en"><head>
+<html lang="en">
+<head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Zoom REST User API Example">
@@ -32,5 +33,24 @@
     <div class="col-xs-9" style=" margin-left: 200px; min-width:400px; overflow:hidden">
     	<section id="Introduction" class="group roundBorder">
     		<h2 class="ZoomBlue">User API</h2>
-    		
+            <?php
+            include('classes/zoomUser.php');
+    		include('forms/user/createauser.php');
+            include('forms/user/autocreateauser.php');
+            include('forms/user/custcreateauser.php');
+            include('forms/user/preprovisioningssouser.php');
+            include('forms/user/deleteauser.php');
+            include('forms/user/listusers.php');
+            include('forms/user/listpendingusers.php');
+            include('forms/user/getuserinfo.php');
+            include('forms/user/getuserinfobyemail.php');
+            include('forms/user/updateuserinfo.php');
+            include('forms/user/updateuserpassword.php');
+            include('forms/user/setuserassistant.php');
+            include('forms/user/deleteuserassistant.php');
+            include('forms/user/revokessotoken.php');
+            include('forms/user/deleteuserpermanently.php');
+            ?>
   	</div>
+</body>
+</html
