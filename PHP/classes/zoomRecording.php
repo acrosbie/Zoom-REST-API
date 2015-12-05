@@ -1,5 +1,5 @@
 <?php
-/*Be sure to include sendZoomRequest.php*/
+include('sendZoomRequest.php');
 class zoomRecording{
 	/*Public functions for managing recordings*/
 	public function listRecording(){

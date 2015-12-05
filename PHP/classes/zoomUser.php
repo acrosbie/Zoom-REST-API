@@ -1,5 +1,5 @@
 <?php
-/*Be sure to include sendZoomRequest.php*/
+include('sendZoomRequest.php');
 class zoomUser{
 	/*Public functions for management of users*/
 	public function createAUser(){		

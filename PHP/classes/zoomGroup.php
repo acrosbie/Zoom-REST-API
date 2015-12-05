@@ -1,5 +1,5 @@
 <?php
-/*Be sure to include sendZoomRequest.php*/
+include('sendZoomRequest.php');
 class zoomGroups{
 	/*Public Functions for management of groups*/
 	public function listGroups(){

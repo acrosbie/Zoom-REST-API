@@ -1,5 +1,5 @@
 <?php
-/*Be sure to include sendZoomRequest.php*/
+include('sendZoomRequest.php');
 class zoomReport{
 	/*Public functions for management of reports*/
 	public function getDailyReport(){

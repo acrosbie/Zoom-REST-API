@@ -1,5 +1,5 @@
 <?php
-/*Be sure to include sendZoomRequest.php*/
+include('sendZoomRequest.php');
 class zoomWebinar{
 	/*Public functions for management of webinars*/
 	public function createAWebinar(){
