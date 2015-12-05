@@ -2,6 +2,7 @@
 include('sendZoomRequest.php');
 class zoomUser{
 	/*Variables for zoomUser class and their default values*/
+	private $userId = "";
 	private $userEmail = "aidan@zoom.us";
 	private $userType = 2;
 	private $userFirstName = "Aidan";
@@ -288,190 +289,190 @@ class zoomUser{
 	/*Public functions for management of users*/
 	public function createAUser(){		
 		$createAUserArray = array();
-		$createAUserArray['email'] = $_POST['createAUserEmail'];
-		$createAUserArray['type'] = $_POST['createAUserType'];
-		$createAUserArray['first_name'] = $_POST['createAUserFirstName'];
-		$createAUserArray['last_name'] = $_POST['createAUserLastName'];
-		$createAUserArray['disable_chat'] = $_POST['createAUserDisableChat'];
-		$createAUserArray['enable_e2e_encryption'] = $_POST['createAUserEnableE2EEncryption'];
-		$createAUserArray['enable_silent_mode'] = $_POST['createAUserEnableSilentMode'];
-		$createAUserArray['disable_group_hd'] = $_POST['createAUserDisableGroupHD'];
-		$createAUserArray['disable_recording'] = $_POST['userDisableRecording'];
-		$createAUserArray['enable_cmr'] = $_POST['createAUserEnableCmr'];
-		$createAUserArray['enable_auto_recording'] = $_POST['createAUserEnableAutoRecording'];
-		$createAUserArray['enable_cloud_recording'] = $_POST['createAUserEnableCloudRecording'];
-		$createAUserArray['track_id'] = $_POST['createAUserTrackID'];
-		$createAUserArray['meeting_capacity'] = $_POST['createAUserMeetingCapacity'];
-		$createAUserArray['enable_webinar'] = $_POST['createAUuserEnableWebinar'];
-		$createAUserArray['webinar_capacity'] = $_POST['createAUserWebinarCapacity'];
-		$createAUserArray['enable_large'] = $_POST['createAUserEnableLarge'];
-		$createAUserArray['large_capacity'] = $_POST['createAUserLargeCapacity'];
-		$createAUserArray['disable_feedback'] = $_POST['createAUserDisableFeedback'];
-		$createAUserArray['disable_jbh_reminder'] = $_POST['createAUserDisableJBHReminder'];
-		$createAUserArray['dept'] = $_POST['createAUserDept'];
+		$createAUserArray['email'] = $userEmail;
+		$createAUserArray['type'] = $userType;
+		$createAUserArray['first_name'] = $userFirstName;
+		$createAUserArray['last_name'] = $userLastName;
+		$createAUserArray['disable_chat'] = $userDisableChat;
+		$createAUserArray['enable_e2e_encryption'] = $userEnableE2E;
+		$createAUserArray['enable_silent_mode'] = $userEnableSilentMode;
+		$createAUserArray['disable_group_hd'] = $userDisableGroupHD;
+		$createAUserArray['disable_recording'] = $userDisableRecording;
+		$createAUserArray['enable_cmr'] = $userEnableCMR;
+		$createAUserArray['enable_auto_recording'] = $userEnableAutoRecording;
+		$createAUserArray['enable_cloud_recording'] = $userEnableCloudRecording;
+		$createAUserArray['track_id'] = $userTrackID;
+		$createAUserArray['meeting_capacity'] = $userMeetingCapacity;
+		$createAUserArray['enable_webinar'] = $userEnableWebinar;
+		$createAUserArray['webinar_capacity'] = $userWebinarCapacity;
+		$createAUserArray['enable_large'] = $userEnableLarge;
+		$createAUserArray['large_capacity'] = $userLargeCapacity;
+		$createAUserArray['disable_feedback'] = $userDisableFeedback;
+		$createAUserArray['disable_jbh_reminder'] = $userDisableJBHReminder;
+		$createAUserArray['dept'] = $userDept;
 		return $this->$sendZoomRequest->$sendRequest('user/create', $createAUserArray);
 	}   
 
 	public function autoCreateAUser(){
 		$autoCreateAUserArray = array();
-		$autoCreateAUserArray['email'] = $_POST['autoCreateAUserEmail'];
-		$autoCreateAUserArray['type'] = $_POST['autoCreateAUserType'];
-		$autoCreateAUserArray['first_name'] = $_POST['autoCreateAUserFirstName'];
-		$autoCreateAUserArray['last_name'] = $_POST['autoCreateAUserLastName'];
-		$autoCreateAUserArray['disable_chat'] = $_POST['autoCreateAUserDisableChat'];
-		$autoCreateAUserArray['enable_e2e_encryption'] = $_POST['autoCreateAUserEnableE2EEncryption'];
-		$autoCreateAUserArray['enable_silent_mode'] = $_POST['autoCreateAUserEnableSilentMode'];
-		$autoCreateAUserArray['disable_group_hd'] = $_POST['autoCreateAUserDisableGroupHD'];
-		$autoCreateAUserArray['disable_recording'] = $_POST['autoCreateAUserDisableRecording']
-		$autoCreateAUserArray['enable_cmr'] = $_POST['autoCreateAUserEnableCmr'];
-		$autoCreateAUserArray['enable_auto_recording'] = $_POST['autoCreateAUserEnableAutoRecording'];
-		$autoCreateAUserArray['enable_cloud_recording'] = $_POST['autoCreateAUserEnableCloudRecording'];
-		$autoCreateAUserArray['track_id'] = $_POST['autoCreateAUserTrackID'];
-		$autoCreateAUserArray['meeting_capacity'] = $_POST['autoCreatAUserMeetingCapacity'];
-		$autoCreateAUserArray['enable_webinar'] = $_POST['autoCreateAUserEnableWebinar'];
-		$autoCreateAUserArray['webinar_capacity'] = $_POST['autoCreateAUserWebinarCapacity'];
-		$autoCreateAUserArray['enable_large'] = $_POST['autoCreateAUserEnableLarge'];
-		$autoCreateAUserArray['large_capacity'] = $_POST['autoCreateAUserLargeCapacity'];
-		$autoCreateAUserArray['disable_feedback'] = $_POST['autoCreateAUserDisableFeedback'];
-		$autoCreateAUserArray['disable_jbh_reminder'] = $_POST['autoCreateAUserDisableJBHReminder'];
-		$autoCreateAUserArray['dept'] = $_POST['autoCreateAUserDept'];
+		$autoCreateAUserArray['email'] = $userEmail;
+		$autoCreateAUserArray['type'] = $userType;
+		$autoCreateAUserArray['first_name'] = $userFirstName;
+		$autoCreateAUserArray['last_name'] = $userLastName;
+		$autoCreateAUserArray['disable_chat'] = $userDisableChat;
+		$autoCreateAUserArray['enable_e2e_encryption'] = $userEnableE2E;
+		$autoCreateAUserArray['enable_silent_mode'] = $userEnableSilentMode;
+		$autoCreateAUserArray['disable_group_hd'] = $userDisableGroupHD;
+		$autoCreateAUserArray['disable_recording'] = $userDisableRecording;
+		$autoCreateAUserArray['enable_cmr'] = $userEnableCMR;
+		$autoCreateAUserArray['enable_auto_recording'] = $userEnableAutoRecording;
+		$autoCreateAUserArray['enable_cloud_recording'] = $userEnableCloudRecording;
+		$autoCreateAUserArray['track_id'] = $userTrackID;
+		$autoCreateAUserArray['meeting_capacity'] = $userMeetingCapacity;
+		$autoCreateAUserArray['enable_webinar'] = $userEnableWebinar;
+		$autoCreateAUserArray['webinar_capacity'] = $userWebinarCapacity;
+		$autoCreateAUserArray['enable_large'] = $userEnableLarge;
+		$autoCreateAUserArray['large_capacity'] = $userLargeCapacity;
+		$autoCreateAUserArray['disable_feedback'] = $userDisableFeedback;
+		$autoCreateAUserArray['disable_jbh_reminder'] = $userDisableJBHReminder;
+		$autoCreateAUserArray['dept'] = $userDept;
 		return $this->$sendZoomRequest->sendRequest('user/autocreate', $autoCreateAUserArray);
 	}
 
 	public function custCreateAUser(){
 		$custCreateAUserArray = array();
-		$custCreateAUserArray['email'] = $_POST['custCreateAUserEmail'];
-		$custCreateAUserArray['type'] = $_POST['custCreateAUserType'];
-		$custCreateAUserArray['first_name'] = $_POST['custCreateAUserFirstName'];
-		$custCreateAUserArray['last_name'] = $_POST['custCreateAUserLastName'];
-		$custCreateAUserArray['disable_chat'] = $_POST['custCreateAUserDisableChat'];
-		$custCreateAUserArray['enable_e2e_encryption'] = $_POST['custCreateAUserEnableE2EEncryption'];
-		$custCreateAUserArray['enable_silent_mode'] = $_POST['custCreateAUserEnableSilentMode'];
-		$custCreateAUserArray['disable_group_hd'] = $_POST['custCreateAUserDisableGroupHD'];
-		$custCreateAUserArray['disable_recording'] = $_POST['custCreateAUserDisableRecording'];
-		$custCreateAUserArray['enable_cmr'] = $_POST['custCreateAUserEnableCmr'];
-		$custCreateAUserArray['enable_auto_recording'] = $_POST['custCreateAUserEnableAutoRecording'];
-		$custCreateAUserArray['enable_cloud_recording'] = $_POST['custCreateAUserEnableCloudRecording'];
-		$custCreateAUserArray['track_id'] = $_POST['custCreateAUserTrackID'];
-		$custCreateAUserArray['meeting_capacity'] = $_POST['custCreateAUserMeetingCapacity'];
-		$custCreateAUserArray['enable_webinar'] = $_POST['custCreateAUserEnableWebinar'];
-		$custCreateAUserArray['webinar_capacity'] = $_POST['custCreateAUserWebinarCapacity'];
-		$custCreateAUserArray['enable_large'] = $_POST['custCreateAUserEnableLarge'];
-		$custCreateAUserArray['large_capacity'] = $_POST['custCreateAUserLargeCapacity'];
-		$custCreateAUserArray['disable_feedback'] = $_POST['custCreateAUserDisableFeedback'];
-		$custCreateAUserArray['disable_jbh_reminder'] = $_POST['custCreateAUserDisableJBHReminder'];
-		$custCreateAUserArray['dept'] = $_POST['custCreateAUserDept'];
+		$custCreateAUserArray['email'] = $userEmail;
+		$custCreateAUserArray['type'] = $userType;
+		$custCreateAUserArray['first_name'] = $userFirstName;
+		$custCreateAUserArray['last_name'] = $userLastName;
+		$custCreateAUserArray['disable_chat'] = $userDisableChat;
+		$custCreateAUserArray['enable_e2e_encryption'] = $userEnableE2E;
+		$custCreateAUserArray['enable_silent_mode'] = $userEnableSilentMode;
+		$custCreateAUserArray['disable_group_hd'] = $userDisableGroupHD;
+		$custCreateAUserArray['disable_recording'] = $userDisableRecording;
+		$custCreateAUserArray['enable_cmr'] = $userEnableCMR;
+		$custCreateAUserArray['enable_auto_recording'] = $userEnableAutoRecording;
+		$custCreateAUserArray['enable_cloud_recording'] = $userEnableCloudRecording;
+		$custCreateAUserArray['track_id'] = $userTrackID;
+		$custCreateAUserArray['meeting_capacity'] = $userMeetingCapacity;
+		$custCreateAUserArray['enable_webinar'] = $userEnableWebinar;
+		$custCreateAUserArray['webinar_capacity'] = $userWebinarCapacity;
+		$custCreateAUserArray['enable_large'] = $userEnableLarge;
+		$custCreateAUserArray['large_capacity'] = $userLargeCapacity;
+		$custCreateAUserArray['disable_feedback'] = $userDisableFeedback;
+		$custCreateAUserArray['disable_jbh_reminder'] = $userDisableJBHReminder;
+		$custCreateAUserArray['dept'] = $userDept;
 		return $this->$sendZoomRequest->sendRequest('user/custcreate', $custCreateAUserArray);
 	}  
 
 	public function preProvisioningSSOUser(){
 		$preProvisioningSSOUserArray = array();
-		$preProvisioningSSOUserArray['email'] = $_POST['preProvisioningSSOUserEmail'];
-		$preProvisioningSSOUserArray['type'] = $_POST['preProvisioningSSOUserype'];
-		$preProvisioningSSOUserArray['first_name'] = $_POST['preProvisioningSSOUserFirstName'];
-		$preProvisioningSSOUserArray['last_name'] = $_POST['preProvisioningSSOUserLastName'];
-		$preProvisioningSSOUserArray['enable_webinar'] = $_POST['preProvisioningSSOUserEnableWebinar'];
-		$preProvisioningSSOUserArray['webinar_capacity'] = $_POST['preProvisioningSSOUserWebinarCapacity'];
-		$preProvisioningSSOUserArray['enable_large'] = $_POST['preProvisioningSSOUserEnableLarge'];
-		$preProvisioningSSOUserArray['large_capacity'] = $_POST['preProvisioningSSOUserLargeCapacity'];
-		$preProvisioningSSOUserArray['dept'] = $_POST['preProvisioningSSOUserDept'];
-		$preProvisioningSSOUserArray['pmi'] = $_POST['preProvisioningSSOUserPMI'];
+		$preProvisioningSSOUserArray['email'] = $userEmail;
+		$preProvisioningSSOUserArray['type'] = $userType;
+		$preProvisioningSSOUserArray['first_name'] = $userFirstName;
+		$preProvisioningSSOUserArray['last_name'] = $userLastName;
+		$preProvisioningSSOUserArray['enable_webinar'] = $userEnableWebinar;
+		$preProvisioningSSOUserArray['webinar_capacity'] = $userWebinarCapacity;
+		$preProvisioningSSOUserArray['enable_large'] = $userEnableLarge;
+		$preProvisioningSSOUserArray['large_capacity'] = $userLargeCapacity;
+		$preProvisioningSSOUserArray['dept'] = $userDept;
+		$preProvisioningSSOUserArray['pmi'] = $userPMI;
 		return $this->$sendZoomRequest->sendRequest('user/ssocreate', $preProvisioningSSOUserArray);
 	}
 
 	public function deleteAUser(){
 		$deleteAUserArray = array();
-		$deleteAUserArray['id'] = $_POST['deleteAUserId'];
+		$deleteAUserArray['id'] = $userId;
 		return $this->$sendZoomRequest->sendRequest('user/delete', $deleteUserArray);
 	}     
 
 	public function listUsers(){
 		$listUsersArray = array();
-		$listUsersArray['page_size'] = $_POST['listUserPageSize'];
-		$listUsersArray['page_number'] = $_POST['listUserPageNumber'];
+		$listUsersArray['page_size'] = $userPageSize;
+		$listUsersArray['page_number'] = $userPageNumber;
 		return $this->$sendZoomRequest->sendRequest('user/list', $listUsersArray);
 	}   
 
 	public function listPendingUsers(){
 		$listPendingUsersArray = array();
-		$listPendingUsersArray['page_size'] = $_POST['listPendingUsersPageSize'];
-		$listPendingUsersArray['page_number'] = $_POST['listPendingUsersPageNumber'];
+		$listPendingUsersArray['page_size'] = $userPageSize;
+		$listPendingUsersArray['page_number'] = $userPageNumber;
 		return $this->$sendZoomRequest->sendRequest('user/pending', $listPendingUsersArray);
 	}    
 
 	public function getUserInfo(){
 		$getUserInfoArray = array();
-		$getUserInfoArray['id'] = $_POST['getUserInfoUserId'];
+		$getUserInfoArray['id'] = $userId;
 		return $this->$sendZoomRequest->sendRequest('user/get',$getUserInfoArray);
 	}   
 
 	public function getUserInfoByEmail(){
 		$getUserInfoByEmailArray = array();
-		$getUserInfoByEmailArray['email'] = $_POST['getUserInfoByEmailUserEmail'];
-		$getUserInfoByEmailArray['login_type'] = $_POST['getUserInfoByEmailUserLoginType'];
+		$getUserInfoByEmailArray['email'] = $userEmail;
+		$getUserInfoByEmailArray['login_type'] = $userLoginType;
 		return $this->$sendZoomRequest->sendRequest('user/getbyemail',$getUserInfoByEmailArray);
 	}  
 
 	public function updateUserInfo(){
 		$updateUserInfoArray = array();
-		$updateUserInfoArray['id'] = $_POST['updateUserInfoId'];
-		$updateUserInfoAUserArray['type'] = $_POST['updateUserInfoType'];
-		$updateUserInfoAUserArray['first_name'] = $_POST['updateUserInfoFirstName'];
-		$updateUserInfoAUserArray['last_name'] = $_POST['updateUserInfoLastName'];
-		$updateUserInfoAUserArray['disable_chat'] = $_POST['updateUserInfoDisableChat'];
-		$updateUserInfoAUserArray['enable_e2e_encryption'] = $_POST['updateUserInfoEnableE2EEncryption'];
-		$updateUserInfoAUserArray['enable_silent_mode'] = $_POST['updateUserInfoEnableSilentMode'];
-		$updateUserInfoAUserArray['disable_group_hd'] = $_POST['updateUserInfoDisableGroupHD'];
-		$updateUserInfoAUserArray['disable_recording'] = $_POST['updateUserInfoDisableRecording'];
-		$updateUserInfoAUserArray['enable_cmr'] = $_POST['updateUserInfoEnableCmr'];
-		$updateUserInfoAUserArray['enable_auto_recording'] = $_POST['updateUserInfoEnableAutoRecording'];
-		$updateUserInfoAUserArray['enable_cloud_recording'] = $_POST['updateUserInfoEnableCloudRecording'];
-		$updateUserInfoAUserArray['track_id'] = $_POST['updateUserInfoTrackID'];
-		$updateUserInfoAUserArray['meeting_capacity'] = $_POST['updateUserInfoMeetingCapacity'];
-		$updateUserInfoAUserArray['enable_webinar'] = $_POST['updateUserInfoEnableWebinar'];
-		$updateUserInfoAUserArray['webinar_capacity'] = $_POST['updateUserInfoWebinarCapacity'];
-		$updateUserInfoAUserArray['enable_large'] = $_POST['updateUserInfoEnableLarge'];
-		$updateUserInfoAUserArray['large_capacity'] = $_POST['updateUserInfoLargeCapacity'];
-		$updateUserInfoAUserArray['disable_feedback'] = $_POST['updateUserInfoDisableFeedback'];
-		$updateUserInfoAUserArray['disable_jbh_reminder'] = $_POST['updateUserInfoDisableJBHReminder'];
-		$updateUserInfoAUserArray['dept'] = $_POST['updateUserInfoDept'];
+		$updateUserInfoArray['id'] = $userId;
+		$updateUserInfoAUserArray['type'] = $userType;
+		$updateUserInfoAUserArray['first_name'] = $userFirstName;
+		$updateUserInfoAUserArray['last_name'] = $userLastName;
+		$updateUserInfoAUserArray['disable_chat'] = $userDisableChat;
+		$updateUserInfoAUserArray['enable_e2e_encryption'] = $userEnableE2E;
+		$updateUserInfoAUserArray['enable_silent_mode'] = $userEnableSilentMode;
+		$updateUserInfoAUserArray['disable_group_hd'] = $$userDisableGroupHD;
+		$updateUserInfoAUserArray['disable_recording'] = $userDisableRecording;
+		$updateUserInfoAUserArray['enable_cmr'] = $userEnableCMR;
+		$updateUserInfoAUserArray['enable_auto_recording'] = $userEnableAutoRecording;
+		$updateUserInfoAUserArray['enable_cloud_recording'] = $userEnableCloudRecording;
+		$updateUserInfoAUserArray['track_id'] = $userTrackID;
+		$updateUserInfoAUserArray['meeting_capacity'] = $userMeetingCapacity;
+		$updateUserInfoAUserArray['enable_webinar'] = $userEnableWebinar;
+		$updateUserInfoAUserArray['webinar_capacity'] = $userWebinarCapacity;
+		$updateUserInfoAUserArray['enable_large'] = $userEnableLarge;
+		$updateUserInfoAUserArray['large_capacity'] = $userLargeCapacity;
+		$updateUserInfoAUserArray['disable_feedback'] = $userDisableFeedback;
+		$updateUserInfoAUserArray['disable_jbh_reminder'] = $userDisableJBHReminder;
+		$updateUserInfoAUserArray['dept'] = $userDept;
 		return $this->$sendZoomRequest->sendRequest('user/update',$updateUserInfoArray);
 	}  
 
 	public function updateUserPassword(){
 		$updateUserPasswordArray = array();
-		$updateUserPasswordArray['id'] = $_POST['updateUserPasswordId'];
-		$updateUserPasswordArray['password'] = $_POST['updateUserPasswordNewPassword'];
+		$updateUserPasswordArray['id'] = $userId;
+		$updateUserPasswordArray['password'] = $userPassword;
 		return $this->$sendZoomRequest->sendRequest('user/updatepassword', $updateUserPasswordArray)
 	}      
 
 	public function setUserAssistant(){
 		$setUserAssistantArray() = array();
-		$setUserAssistantArray['id'] = $_POST['setUserAssistantId'];
-		$setUserAssistantArray['host_email'] = $_POST['setUserAssistantEmail'];
-		$setUserAssistantArray['assistant_email'] = $_POST['setUserAssistantAssistantEmail'];
+		$setUserAssistantArray['id'] = $userId;
+		$setUserAssistantArray['host_email'] = $userEmail;
+		$setUserAssistantArray['assistant_email'] = $userAssistantEmail;
 		return $this->$sendZoomRequest->sendRequest('user/assistant/set', $setUserAssistantArray);
 	}     
 
 	public function deleteUserAssistant(){
 		$deleteUserAssistantArray = array();
-		$deleteUserAssistantArray['id'] = $_POST['deleteUserAssistantId'];
-		$deleteUserAssistantArray['host_email'] = $_POST['deleteUserAssistantEmail'];
-		$deleteUserAssistantArray['assistant_email'] = $_POST['deleteUserAssistantAssistantEmail'];
+		$deleteUserAssistantArray['id'] = $userId;
+		$deleteUserAssistantArray['host_email'] = $userEmail;
+		$deleteUserAssistantArray['assistant_email'] = $userAssistantEmail;
 		return $this->$sendZoomRequest->sendRequest('user/assistant/delete',$deleteUserAssistantArray);
 	}   
 
 	public function revokeSSOToken(){
 		$revokeSSOTokenArray = array();
-		$revokeSSOTokenArray['id'] = $_POST['revokeSSOTokenId'];
-		$revokeSSOTokenArray['email'] = $_POST['revokeSSOTokenEmail'];
+		$revokeSSOTokenArray['id'] = $userId;
+		$revokeSSOTokenArray['email'] = $userEmail;
 		return $this->$sendZoomRequest->sendRequest('user/revoketoken', $revokeSSOTokenArray);
 	}      
 
 	public function deleteUserPermanently(){
 		$deleteUserPermanentlyArray = array();
-		$deleteUserPermanentlyArray['id'] = $_POST['deleteUserPermanentlyId'];
-		$deleteUserPermanentlyArray['email'] = $_POST['deleteUserPermanentlyEmail'];
+		$deleteUserPermanentlyArray['id'] = $userId;
+		$deleteUserPermanentlyArray['email'] = $userEmail;
 		return $this->$sendZoomRequest->sendRequest('user/permanentdelete', $deleteUserPermanentlyArray);
 	}   
 }
