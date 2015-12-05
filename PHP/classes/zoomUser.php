@@ -1,6 +1,290 @@
 <?php
 include('sendZoomRequest.php');
 class zoomUser{
+	/*Variables for zoomUser class and their default values*/
+	private $userEmail = "aidan@zoom.us";
+	private $userType = 2;
+	private $userFirstName = "Aidan";
+	private $userLastName = "Crosbie";
+	private $userDisableChat = false;
+	private $userEnableE2E = true;
+	private $userEnableSilentMode = false;
+	private $userDisableGroupHD = true;
+	private $userDisableRecording = false;
+	private $userEnableCMR = false;
+	private $userEnableAutoRecording = false;
+	private $userEnableCloudRecording = false;
+	private $userTrackID = "";
+	private $userMeetingCapacity = 0;
+	private $userEnableWebinar = false;
+	private $userWebinarCapacity = 0;
+	private $userEnableLarge = false;
+	private $userLargeCapacity = 0;
+	private $userDisableFeedback = false;
+	private $userDisableJBHReminder = false;
+	private $userDept = "";
+	private $userPMI = 1234567891;
+	private $userPageSize = 30;
+	private $userPageNumber = 1;
+	private $userLoginType = 100;
+	private $userTimezone = "America/Los_Angeles";
+	private $userPassword = "password";
+	private $userAssistantEmail = "lukas@zoom.us";
+	private $userPicFile = "http://d24cgw3uvb9a9h.cloudfront.net/static/33899/image/new/ZoomLogo.png";
+
+	/*Get and Set $userEmail*/
+	public function setUserEmail($userEmail){
+		$this->userEmail = $userEmail;
+	}
+
+	public function getUserEmail(){
+		return $this->userEmail;
+	}
+
+	/*Get and Set $userType*/
+	public function setUserType($userType){
+		$this->userType = $userType;
+	}
+
+	public function getUserType(){
+		return $this->userType;
+	}
+
+	/*Get and Set $userFirstName*/
+	public function setUserFirstName($userFirstName){
+		$this->userFirstName = $userFirstName;
+	}
+
+	public function getUserFirstName(){
+		return $this->userFirstName;
+	}
+
+	/*Get and Set $userLastName*/
+	public function setUserLastName($userLastName){
+		$this->userLastName = $userLastName;
+	}
+
+	public function getUserLastName(){
+		return $this->userLastName;
+	}
+
+	/*Get and Set $userDisableChat*/
+	public function setUserDisableChat($userDisableChat){
+		$this->userDisableChat = $userDisableChat;
+	}
+
+	public function getUserDisableChat(){
+		return $this->userDisableChat;
+	}
+
+	/*Get and Set $userEnableE2E*/
+	public function setUserEnableE2E($userEnableE2E){
+		$this->userEnableE2E = $userEnableE2E;
+	}
+
+	public function getUserEnableE2E(){
+		return $this->userEnableE2E;
+	}
+
+	/*Get and Set $userEnableSilentMode*/
+	public function setUserEnableSilentMode($userEnableSilentMode){
+		$this->userEnableSilentMode = $userEnableSilentMode;
+	}
+
+	public function getUserEnableSilentMode(){
+		return $this->userEnableSilentMode;
+	}
+
+	/*Get and Set $userDisableGroupHD*/
+	public function setUserDisableGroupHD($userDisableGroupHD){
+		$this->userDisableGroupHD = $userDisableGroupHD;
+	}
+
+	public function getUserDisableGroupHD(){
+		return $this->userDisableGroupHD;
+	}
+
+	/*Get and Set $userEnableCMR*/
+	public function setUserEnableCMR($userEnableCMR){
+		$this->userEnableCMR = $userEnableCMR;
+	}
+
+	public function getUserEnableCMR(){
+		return $this->userEnableCMR;
+	}
+
+	/*Get and Set $userEnableAutoRecording*/
+	public function setUserEnableAutoRecording($userEnableAutoRecording){
+		$this->userEnableAutoRecording = $userEnableAutoRecording;
+	}
+
+	public function getUserEnableAutoRecording(){
+		return $this->userEnableAutoRecording;
+	}
+
+	/*Get and Set $userEnableCloudRecording*/
+	public function setUser($userEnableCloudRecording){
+		$this->userEnableCloudRecording = $userEnableCloudRecording;
+	}
+
+	public function getUserEnableCloudRecording(){
+		return $this->userEnableCloudRecording;
+	}
+
+	/*Get and Set $userTrackID*/
+	public function setUserTrackID($userTrackID){
+		$this->userTrackID = $userTrackID;
+	}
+
+	public function getUserTrackID(){
+		return $this->userTrackID;
+	}
+
+	/*Get and Set $userMeetingCapacity*/
+	public function setUserMeetingCapacity($userMeetingCapacity){
+		$this->userMeetingCapacity = $userMeetingCapacity;
+	}
+
+	public function getUserMeetingCapacity(){
+		return $this->userMeetingCapacity;
+	}
+
+	/*Get and Set $userEnableWebinar*/
+	public function setUserEnableWebinar($userEnableWebinar){
+		$this->userEnableWebinar = $userEnableWebinar;
+	}
+
+	public function getUserEnableWebinar(){
+		return $this->userEnableWebinar;
+	}
+
+	/*Get and Set $userWebinarCapacity*/
+	public function setUserWebinarCapacity($userWebinarCapacity){
+		$this->userWebinarCapacity = $userWebinarCapacity;
+	}
+
+	public function getUserWebinarCapacity(){
+		return $this->userWebinarCapacity;
+	}
+
+	/*Get and Set $userEnableLarge*/
+	public function setUserEnableLarge($userEnableLarge){
+		$this->userEnableLarge = $userEnableLarge;
+	}
+
+	public function getUserEnableLarge(){
+		return $this->userEnableLarge;
+	}
+
+	/*Get and Set $userLargeCapacity*/
+	public function setUserLargeCapacity($userLargeCapacity){
+		$this->userLargeCapacity = $userLargeCapacity;
+	}
+
+	public function getUserLargeCapacity(){
+		return $this->userLargeCapacity;
+	}
+
+	/*Get and Set $userDisableFeedback */
+	public function setUserDisableFeedback($userDisableFeedback){
+		$this->userDisableFeedback = $userDisableFeedback;
+	}
+
+	public function getUserDisableFeedback (){
+		return $this->userDisableFeedback;
+	}
+
+	/*Get and Set $userDisableJBHReminder*/
+	public function setUserDisableJBHReminder($userDisableJBHReminder){
+		$this->userDisableJBHReminder = $userDisableJBHReminder;
+	}
+
+	public function getUserDisableJBHReminder(){
+		return $this->userDisableJBHReminder;
+	}
+
+	/*Get and Set $userDept*/
+	public function setUserDept($userDept){
+		$this->userDept = $userDept;
+	}
+
+	public function getUserDept(){
+		return $this->userDept;
+	}
+
+	/*Get and Set $userPMI*/
+	public function setUserPMI($userPMI){
+		$this->userPMI = $userPMI;
+	}
+
+	public function getUserPMI(){
+		return $this->userPMI;
+	}
+
+	/*Get and Set $userPageSize*/
+	public function setUserPageSize($userPageSize){
+		$this->userPageSize = $userPageSize;
+	}
+
+	public function getUserPageSize(){
+		return $this->userPageSize;
+	}
+
+	/*Get and Set $userPageNumber*/
+	public function setUserPageNumber($userPageNumber){
+		$this->userPageNumber = $userPageNumber;
+	}
+
+	public function getUserPageNumber(){
+		return $this->userPageNumber;
+	}
+
+	/*Get and Set $user*/
+	public function setUserLoginType($userLoginType){
+		$this->userLoginType = $userLoginType;
+	}
+
+	public function getUserLoginType(){
+		return $this->userLoginType;
+	}
+
+	/*Get and Set $userTimezone*/
+	public function setUserTimezone($userTimezone){
+		$this->userTimezone = $userTimezone;
+	}
+
+	public function getUserTimezone(){
+		return $this->userTimezone;
+	}
+
+	/*Get and Set $userPassword*/
+	public function setUserPassword($userPassword){
+		$this->userPassword = $userPassword;
+	}
+
+	public function getUserPassword(){
+		return $this->userPassword;
+	}
+
+	/*Get and Set $userAssistantEmail*/
+	public function setUser($userAssistantEmail){
+		$this->userAssistantEmail = $userAssistantEmail;
+	}
+
+	public function getUserAssistantEmail(){
+		return $this->userAssistantEmail;
+	}
+
+	/*Get and Set $user*/
+	public function setUserPicFile($userPicFile){
+		$this->userPicFile = $userPicFile;
+	}
+
+	public function getUserPicFile(){
+		return $this->userPicFile;
+	}
+
+
 	/*Public functions for management of users*/
 	public function createAUser(){		
 		$createAUserArray = array();
