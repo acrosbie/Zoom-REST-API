@@ -1,6 +1,6 @@
 <?php
 include('sendZoomRequest.php');
-class zoomGroups{
+class zoomGroup{
 	/*Public Functions for management of groups*/
 	public function listGroups(){
 		$listGroupsArray = array();
