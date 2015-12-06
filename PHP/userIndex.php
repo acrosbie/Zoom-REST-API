@@ -37,6 +37,9 @@ if(isset($_POST['createAUserSubmit'])){
 		if(isset($_POST['DisableGroupHD'])){
 			$newCreateUser->setUserDisableGroupHD($_POST['DisableGroupHD']);
 		}
+		if(isset($_POST['DisableRecording'])){
+			$newCreateUser->setUserDisableRecording($_POST['DisableRecording']);
+		}
 		if(isset($_POST['EnableCMR'])){
 			$newCreateUser->setUserEnableCMR($_POST['EnableCMR']);
 		}
@@ -114,6 +117,9 @@ if(isset($_POST['autoCreateAUserSubmit'])){
 		}
 		if(isset($_POST['DisableGroupHD'])){
 			$newAutoCreateUser->setUserDisableGroupHD($_POST['DisableGroupHD']);
+		}
+		if(isset($_POST['DisableRecording'])){
+			$newAutoCreateUser->setUserDisableRecording($_POST['DisableRecording']);
 		}
 		if(isset($_POST['EnableCMR'])){
 			$newAutoCreateUser->setUserEnableCMR($_POST['EnableCMR']);
@@ -193,6 +199,9 @@ if(isset($_POST['custCreateAUserSubmit'])){
 		if(isset($_POST['DisableGroupHD'])){
 			$newCustCreateUser->setUserDisableGroupHD($_POST['DisableGroupHD']);
 		}
+		if(isset($_POST['DisableRecording'])){
+			$newCustCreateUser->setUserDisableRecording($_POST['DisableRecording']);
+		}
 		if(isset($_POST['EnableCMR'])){
 			$newCustCreateUser->setUserEnableCMR($_POST['EnableCMR']);
 		}
@@ -251,28 +260,28 @@ if(isset($_POST['preProvisioningSSOUserSubmit'])){
 		$preProvisioningSSOUserClass->setUserEmail($_POST['Email']);
 		$preProvisioningSSOUserClass->setUserType($_POST['Type']);
 		if(isset($_POST['FirstName'])){
-			$preProvisionSSOUserClass->setUserFirstName($_POST['FirstName']);
+			$newPreProvisioningSSOUser->setUserFirstName($_POST['FirstName']);
 		}
 		if(isset($_POST['LastName'])){
-			$preProvisionSSOUserClass->setUserLastName($_POST['LastName']);
+			$newPreProvisioningSSOUser->setUserLastName($_POST['LastName']);
 		}
 		if(isset($_POST['EnableWebinar'])){
-			$preProvisionSSOUserClass->setUserEnableWebinar($_POST['EnableWebinar']);
+			$newPreProvisioningSSOUser->setUserEnableWebinar($_POST['EnableWebinar']);
 		}
 		if(isset($_POST['WebinarCapacity'])){
-			$preProvisionSSOUserClass->setUserWebinarCapacity($_POST['WebinarCapacity']);
+			$newPreProvisioningSSOUser->setUserWebinarCapacity($_POST['WebinarCapacity']);
 		}
 		if(isset($_POST['EnableLarge'])){
-			$preProvisionSSOUserClass->setUserEnableLarge($_POST['EnableLarge']);
+			$newPreProvisioningSSOUser->setUserEnableLarge($_POST['EnableLarge']);
 		}
 		if(isset($_POST['LargeCapacity'])){
-			$preProvisionSSOUserClass->setUserLargeCapacity($_POST['LargeCapacity']);
+			$newPreProvisioningSSOUser->setUserLargeCapacity($_POST['LargeCapacity']);
 		}
 		if(isset($_POST['Dept'])){
-			$preProvisionSSOUserClass->setUserDept($_POST['Dept']);
+			$newPreProvisioningSSOUser->setUserDept($_POST['Dept']);
 		}
 		if(isset($_POST['PMI'])){
-			$preProvisionSSOUserClass->setUserPMI($_POST['PMI']);
+			$newPreProvisioningSSOUser->setUserPMI($_POST['PMI']);
 		}
 		$preProvisioningSSOUserClass->preProvisioningSSOUser();
 		$preProvisioningSSOUserClass = null;
@@ -283,33 +292,33 @@ if(isset($_POST['deleteAUserSubmit'])){
 		echo 'ID field for deleting user is empty!</br>';
 	}
 	else{
-		$deleteAUserClass = new zoomUser();
-		$deleteAUserClass->setUserID($_POST['ID']);
-		$deleteAUserClass->deleteAUser();
-		$deleteAUserClass = null;
+		$newDeleteAUser = new zoomUser();
+		$newDeleteAUser->setUserID($_POST['ID']);
+		$newDeleteAUser->deleteAUser();
+		$newDeleteAUser = null;
 	}
 }
 if(isset($_POST['listUsersSubmit'])){
-	$listUsersClass = new zoomUser();
+	$newListUsers = new zoomUser();
 	if(isset($_POST['PageSize'])){
-		$listUsersClass->setUserPageSize($_POST['PageSize']);
+		$newListUsers->setUserPageSize($_POST['PageSize']);
 	}
 	if(isset($_POST['PageNumber'])){
 		$listUserClass->setUserPageNumber($_POST['PageNumber']);
 	}
-	$listUsersClass->listUsers();
-	$listUsersClass = null;
+	$newListUsers->listUsers();
+	$newListUsers = null;
 }
 if(isset($_POST['listPendingUsersSubmit'])){
-	$listPendingUsersClass = new zoomUser();
+	$newListPendingUsers = new zoomUser();
 	if(isset($_POST['PageSize'])){
-		$listPendingUsersClass->setUserPageSize($_POST['PageSize']);
+		$newListPendingUsers->setUserPageSize($_POST['PageSize']);
 	}
 	if(isset($_POST['PageNumber'])){
-		$listPendingUsersClass->setUserPageNumber($_POST['PageNumber']);
+		$newListPendingUsers->setUserPageNumber($_POST['PageNumber']);
 	}
-	$listPendingUsersClass->listPendingusers();
-	$listPendingUsersClass = null;
+	$newListPendingUsers->listPendingusers();
+	$newListPendingUsers = null;
 }
 if(isset($_POST['getUserInfoSubmit'])){
 	if(empty($_POST['ID'])){
@@ -317,42 +326,183 @@ if(isset($_POST['getUserInfoSubmit'])){
 		return false;
 	}
 	else{
-		$getUserInfoClass = new zoomUser();
-		$getUserInfoClass->setUserID($_POST['ID']);
-		$getUserInfoClass->getUserInfo();
-		$getUserInfoClass = null;
+		$newGetUserInfo = new zoomUser();
+		$newGetUserInfo->setUserID($_POST['ID']);
+		$newGetUserInfo->getUserInfo();
+		$newGetUserInfo = null;
 	}
 }
 if(isset($_POST['getUserInfoByEmailSubmit'])){
-	
+	if(empty($_POST['Email']) || empty($_POST['LoginType'])){
+		echo 'Email or Login Type not set. Cannot gather info.</br>';
+		return false;
+	}
 	else{
-		$getUserInfoClass = new zoomUser();
-		$getUserInfoClass->setUserID($_POST['ID']);
-		$userClass->getUserInfoByEmail();
+		$newGetUserInfoByEmail = new zoomUser();
+		$newGetUserInfoByEmail->getUserInfoByEmail();
 	}
 }
 if(isset($_POST['updateUserInfoSubmit'])){
-	$userClass = new zoomUser();
-	$userClass->updateUserInfo();
+	if(empty($_POST['ID'])){
+		echo 'No ID submitted. Cannot update user!</br>';
+		return false;
+	}
+	else{
+		$newUpdateUserInfo = new zoomUser();
+		$newUpdateUserInfo->setUserID($_POST['ID']);
+		if(isset($_POST['Type'])){
+			$newUpdateUserInfo->setUserType($_POST['Type']);
+		}
+		if(isset($_POST['FirstName'])){
+			$newUpdateUserInfo->setUserFirstName($_POST['FirstName']);
+		}
+		if(isset($_POST['LastName'])){
+			$newUpdateUserInfo->setUserLastName($_POST['LastName']);
+		}
+		if(isset($_POST['DisableChat'])){
+			$newUpdateUserInfo->setUserDisableChat($_POST['DisableChat']);
+		}
+		if(isset($_POST['EnableE2E'])){
+			$newUpdateUserInfo->setUserEnableE2E($_POST['EnableE2E']);
+		}
+		if(isset($_POST['EnableSilentMode'])){
+			$newUpdateUserInfo->setUserEnableSilentMode($_POST['EnableSilentMode']);
+		}
+		if(isset($_POST['DisableGroupHD'])){
+			$newUpdateUserInfo->setUserDisableGroupHD($_POST['DisableGroupHD']);
+		}
+		if(isset($_POST['DisableRecording'])){
+			$newUpdateUserInfo->setUserDisableRecording($_POST['DisableRecording']);
+		}
+		if(isset($_POST['EnableCMR'])){
+			$newUpdateUserInfo->setUserEnableCMR($_POST['EnableCMR']);
+		}
+		if(isset($_POST['EnableAutoRecording'])){
+			$newUpdateUserInfo->setUserEnableAutoRecording($_POST['EnableAutoRecording']);
+		}
+		if(isset($_POST['EnableCloudAutoRecording'])){
+			$newUpdateUserInfo->setUserEnableCloudAutoRecording($_POST['EnableCloudAutoRecording']);
+		}
+		if(isset($_POST['TrackID'])){
+			$newUpdateUserInfo->setUserTrackID($_POST['TrackID']);
+		}
+		if(isset($_POST['MeetingCapacity'])){
+			$newUpdateUserInfo->setUserMeetingCapacity($_POST['MeetingCapacity']);
+		}
+		if(isset($_POST['EnableWebinar'])){
+			$newUpdateUserInfo->setUserEnableWebinar($_POST['EnableWebinar']);
+		}
+		if(isset($_POST['WebinarCapacity'])){
+			$newUpdateUserInfo->setUserWebinarCapacity($_POST['WebinarCapacity']);
+		}
+		if(isset($_POST['EnableLarge'])){
+			$newUpdateUserInfo->setUserEnableLarge($_POST['EnableLarge']);
+		}
+		if(isset($_POST['LargeCapacity'])){
+			$newUpdateUserInfo->setUserLargeCapacity($_POST['LargeCapacity']);
+		}
+		if(isset($_POST['DisableFeedback'])){
+			$newUpdateUserInfo->setUserDisableFeedback($_POST['DisableFeedback']);
+		}
+		if(isset($_POST['DisableJBHReminder'])){
+			$newUpdateUserInfo->setUserDisableJBHReminder($_POST['DisableJBHReminder']);
+		}
+		if(isset($_POST['Dept'])){
+			$newUpdateUserInfo->setUserDept($_POST['Dept']);
+		}
+		$newUpdateUserInfo->updateUserInfo();
+		$newUpdateUserInfo = null;
+	}
 }
 if(isset($_POST['updateUserPasswordSubmit'])){
-	$userClass = new zoomUser();
-	$userClass->updateUserPassword();
+	if(empty($_POST['ID']) || empty($_POST['Password'])){
+		echo 'ID or New Password Not Set. Cannot Update!</br>';
+		return false;
+	}
+	else{
+		$newUpdateUserPassword = new zoomUser();
+		$newUpdateUserPassword->setUserPassword($_POST['Password']);
+		$newUpdateUserPassword->setUserID($_POST['ID']);
+		$newUpdateUserPassword->updateUserPassword();
+		$newUpdateUserPassword = null;
+	}
 }
 if(isset($_POST['setUserAssistantSubmit'])){
-	$userClass = new zoomUser();
-	$userClass->setUserAssistant();
+	if(empty($_POST['ID']) && empty($_POST['HostEmail'])){
+		echo 'User ID or Email not set. Cannot Add Assistant!</br>';
+		return false;
+	}
+	if(empty($_POST['AssistantEmail')){
+		echo 'Assistant Email not set. Cannot Add Assistant!</br>';
+		return false;
+	}
+	else{
+		$newSetUserAssistantClass = new zoomUser();
+		if(empty($_POST['ID'])){
+			$newSetUserAssistant->setUserEmail($_POST['Email']);
+		}
+		else{
+			$newSetUserAssistant->setUserID($_POST['ID']);
+		}
+		$newSetUserAssistant->setUserAssistantEmail($_POST['AssistantEmail']);
+		$newSetUserAssistant->setUserAssistant();
+		$newSetUserAssistant = null;
+	}
 }
 if(isset($_POST['deleteUserAssistantSubmit'])){
-	$userClass = new zoomUser();
-	$userClass->deleteUserAssistant();
+	if(empty($_POST['ID']) && empty($_POST['HostEmail'])){
+		echo 'User ID or Email not set. Cannot Delete Assistant!</br>';
+		return false;
+	}
+	if(empty($_POST['AssistantEmail')){
+		echo 'Assistant Email not set. Cannot Delete Assistant!</br>';
+		return false;
+	}
+	else{
+		$newDeleteUserAssistantClass = new zoomUser();
+		if(empty($_POST['ID'])){
+			$newDeleteUserAssistant->setUserEmail($_POST['Email']);
+		}
+		else{
+			$newDeleteUserAssistant->setUserID($_POST['ID']);
+		}
+		$newDeleteUserAssistant->setUserAssistantEmail($_POST['AssistantEmail']);
+		$newDeleteUserAssistant->deleteUserAssistant();
+		$newDeleteUserAssistant = null;
+	}
 }
 if(isset($_POST['revokeSSOTokenSubmit'])){
-	$userClass = new zoomUser();
-	$userClass->revokeSSOToken();
+	if(empty($_POST['ID']) && $_POST['Email']){
+		echo 'Email and ID not set. Cannot Revoke SSO Token!</br>';
+		return false;
+	}
+	else{
+		$newRevokeSSOToken = new zoomUser();
+		if(empty($_POST['ID'])){
+			$newRevokeSSOToken->setUserEmail($_POST['Email']);
+		}
+		else{
+			$newRevokeSSOToken->setUserID($_POST['ID']);
+		}
+		$newRevokeSSOToken->revokeSSOToken();
+		$newRevokeSSOToken = null;
+	}
 }
 if(isset($_POST['deleteUserPermanentlySubmit'])){
-	$userClass = new zoomUser();
-	$userClass->deleteUserPermanently();
+	if(empty($_POST['ID']) && $_POST['Email']){
+		echo 'Email and ID not set. Cannot permanently delete user!</br>';
+		return false;
+	}
+	else{
+		$newDeleteAUserPermanently = new zoomUser();
+		if(empty($_POST['Email'])){
+			$newDeleteAUserPermanently->setUserID($_POST['ID']);
+		}
+		else{
+			$newDeleteAUserPermanently->setUserEmail($_POST['Email'])
+		}
+		$newDeleteAUserPermanently->deleteAUserPermanently();
+		$newDeleteAUserPermanently = null;
+	}
 }
 ?>
