@@ -1,5 +1,5 @@
 <?php
-include('class/zoomUser.php');
+include('classes/zoomUser.php');
 if(isset($_POST['createAUserSubmit'])){
 	$createAUserRequired = array('Email','Type');
 	$createAUserError = false;
