@@ -33,6 +33,10 @@ class zoomUser{
 	private $userAssistantEmail = "lukas@zoom.us";
 	private $userPicFile = "http://d24cgw3uvb9a9h.cloudfront.net/static/33899/image/new/ZoomLogo.png";
 
+	/*Construct and destruct*/
+	public function __construct(){}
+	public function __destruct(){}
+
 	/*Get and Set $userEmail*/
 	public function setUserEmail($userEmail){
 		$this->userEmail = $userEmail;
@@ -124,7 +128,7 @@ class zoomUser{
 	}
 
 	/*Get and Set $userEnableCloudRecording*/
-	public function setUser($userEnableCloudRecording){
+	public function setUserEnableCloudRecording($userEnableCloudRecording){
 		$this->userEnableCloudRecording = $userEnableCloudRecording;
 	}
 
@@ -477,3 +481,8 @@ class zoomUser{
 	}   
 }
 ?>
+
+
+
+
+
