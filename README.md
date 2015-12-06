@@ -14,3 +14,6 @@ Zoom's REST API allows for robust management of
 * Webinars
 
 This allows for complete control of the pre/post meeting experience from your own web-page.
+
+# Notes
+Please note, this is incomplete and not tested.
