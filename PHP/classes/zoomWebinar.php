@@ -13,9 +13,13 @@ class zoomWebinar{
 	private $webinarType = 5;
 	private $webinarPageSize = 30;
 	private $webinarPageNumber = 1;
+	private $sendNewZoomRequest;
 
 	/*Construct and destruct*/
 	public function __construct(){}
+	public function __construct(zoomUser $sendNewZoomRequest){
+		$this->sendZoomRequest = $sendNewZoomRequest;
+	}
 	public function __destruct(){}
 	
 	/*Get and Set $webinarId*/
