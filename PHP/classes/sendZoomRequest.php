@@ -7,6 +7,10 @@ class sendZoomRequest{
 	private $api_secret = 'Please Input Your Own API Secret Here';
 	private $api_url = 'https://api.zoom.us/v1/';
 
+	/*Construct and Destruct*/
+	public function __construct(){}
+	public function __destruct(){}
+
 	/*Function to send HTTP POST Requests*/
 	/*Used by every function below to make HTTP POST call*/
 	public function sendRequest($calledFunction, $data){
