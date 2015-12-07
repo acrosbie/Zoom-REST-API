@@ -8,9 +8,13 @@ class zoomGroup{
 	private $groupPageSize = 30;
 	private $groupPageNumber = 1;
 	private $groupMemberIds = "";
+	private $sendNewZoomRequest;
 
 	/*Construct and destruct*/
 	public function __construct(){}
+	public function __construct(zoomUser $sendNewZoomRequest){
+		$this->sendZoomRequest = $sendNewZoomRequest;
+	}
 	public function __destruct(){}
 
 	/*Get and set for $groupId*/

@@ -9,9 +9,13 @@ class zoomRecording{
 	private $recordingTo = "12/25/2018 09:05 pm";
 	private $recordingPageSize = 30;
 	private $recordingPageNumber = 1;
+	private $sendNewZoomRequest;
 
 	/*Construct and destruct*/
 	public function __construct(){}
+	public function __construct(zoomUser $sendNewZoomRequest){
+		$this->sendZoomRequest = $sendNewZoomRequest;
+	}
 	public function __destruct(){}
 
 	/*Get and Set $recordingHostId*/
