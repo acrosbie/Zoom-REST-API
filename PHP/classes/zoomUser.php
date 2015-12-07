@@ -32,9 +32,14 @@ class zoomUser{
 	private $userPassword = "password";
 	private $userAssistantEmail = "lukas@zoom.us";
 	private $userPicFile = "http://d24cgw3uvb9a9h.cloudfront.net/static/33899/image/new/ZoomLogo.png";
+	private $sendNewZoomRequest;
 
 	/*Construct and destruct*/
 	public function __construct(){}
+	public function __construct(zoomUser $sendNewZoomRequest){
+		$this->sendZoomRequest = $sendNewZoomRequest;
+	}
+
 	public function __destruct(){}
 
 	/*Get and Set $userEmail*/
@@ -314,7 +319,7 @@ class zoomUser{
 		$createAUserArray['disable_feedback'] = $userDisableFeedback;
 		$createAUserArray['disable_jbh_reminder'] = $userDisableJBHReminder;
 		$createAUserArray['dept'] = $userDept;
-		return $this->$sendZoomRequest->$sendRequest('user/create', $createAUserArray);
+		return $this->sendZoomRequest->sendRequest('user/create', $createAUserArray);
 	}   
 
 	public function autoCreateAUser(){
