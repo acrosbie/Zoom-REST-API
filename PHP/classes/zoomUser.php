@@ -36,7 +36,7 @@ class zoomUser{
 
 	/*Construct and destruct*/
 	public function __construct(){}
-	public function __construct(zoomUser $sendNewZoomRequest){
+	public function __construct(sendZoomRequest $sendNewZoomRequest){
 		$this->sendZoomRequest = $sendNewZoomRequest;
 	}
 
@@ -345,7 +345,7 @@ class zoomUser{
 		$autoCreateAUserArray['disable_feedback'] = $userDisableFeedback;
 		$autoCreateAUserArray['disable_jbh_reminder'] = $userDisableJBHReminder;
 		$autoCreateAUserArray['dept'] = $userDept;
-		return $this->$sendZoomRequest->sendRequest('user/autocreate', $autoCreateAUserArray);
+		return $this->sendZoomRequest->sendRequest('user/autocreate', $autoCreateAUserArray);
 	}
 
 	public function custCreateAUser(){
@@ -371,7 +371,7 @@ class zoomUser{
 		$custCreateAUserArray['disable_feedback'] = $userDisableFeedback;
 		$custCreateAUserArray['disable_jbh_reminder'] = $userDisableJBHReminder;
 		$custCreateAUserArray['dept'] = $userDept;
-		return $this->$sendZoomRequest->sendRequest('user/custcreate', $custCreateAUserArray);
+		return $this->sendZoomRequest->sendRequest('user/custcreate', $custCreateAUserArray);
 	}  
 
 	public function preProvisioningSSOUser(){
@@ -386,40 +386,40 @@ class zoomUser{
 		$preProvisioningSSOUserArray['large_capacity'] = $userLargeCapacity;
 		$preProvisioningSSOUserArray['dept'] = $userDept;
 		$preProvisioningSSOUserArray['pmi'] = $userPMI;
-		return $this->$sendZoomRequest->sendRequest('user/ssocreate', $preProvisioningSSOUserArray);
+		return $this->sendZoomRequest->sendRequest('user/ssocreate', $preProvisioningSSOUserArray);
 	}
 
 	public function deleteAUser(){
 		$deleteAUserArray = array();
 		$deleteAUserArray['id'] = $userId;
-		return $this->$sendZoomRequest->sendRequest('user/delete', $deleteUserArray);
+		return $this->sendZoomRequest->sendRequest('user/delete', $deleteUserArray);
 	}     
 
 	public function listUsers(){
 		$listUsersArray = array();
 		$listUsersArray['page_size'] = $userPageSize;
 		$listUsersArray['page_number'] = $userPageNumber;
-		return $this->$sendZoomRequest->sendRequest('user/list', $listUsersArray);
+		return $this->sendZoomRequest->sendRequest('user/list', $listUsersArray);
 	}   
 
 	public function listPendingUsers(){
 		$listPendingUsersArray = array();
 		$listPendingUsersArray['page_size'] = $userPageSize;
 		$listPendingUsersArray['page_number'] = $userPageNumber;
-		return $this->$sendZoomRequest->sendRequest('user/pending', $listPendingUsersArray);
+		return $this->sendZoomRequest->sendRequest('user/pending', $listPendingUsersArray);
 	}    
 
 	public function getUserInfo(){
 		$getUserInfoArray = array();
 		$getUserInfoArray['id'] = $userId;
-		return $this->$sendZoomRequest->sendRequest('user/get',$getUserInfoArray);
+		return $this->sendZoomRequest->sendRequest('user/get',$getUserInfoArray);
 	}   
 
 	public function getUserInfoByEmail(){
 		$getUserInfoByEmailArray = array();
 		$getUserInfoByEmailArray['email'] = $userEmail;
 		$getUserInfoByEmailArray['login_type'] = $userLoginType;
-		return $this->$sendZoomRequest->sendRequest('user/getbyemail',$getUserInfoByEmailArray);
+		return $this->sendZoomRequest->sendRequest('user/getbyemail',$getUserInfoByEmailArray);
 	}  
 
 	public function updateUserInfo(){
@@ -445,14 +445,14 @@ class zoomUser{
 		$updateUserInfoAUserArray['disable_feedback'] = $userDisableFeedback;
 		$updateUserInfoAUserArray['disable_jbh_reminder'] = $userDisableJBHReminder;
 		$updateUserInfoAUserArray['dept'] = $userDept;
-		return $this->$sendZoomRequest->sendRequest('user/update',$updateUserInfoArray);
+		return $this->sendZoomRequest->sendRequest('user/update',$updateUserInfoArray);
 	}  
 
 	public function updateUserPassword(){
 		$updateUserPasswordArray = array();
 		$updateUserPasswordArray['id'] = $userId;
 		$updateUserPasswordArray['password'] = $userPassword;
-		return $this->$sendZoomRequest->sendRequest('user/updatepassword', $updateUserPasswordArray)
+		return $this->sendZoomRequest->sendRequest('user/updatepassword', $updateUserPasswordArray)
 	}      
 
 	public function setUserAssistant(){
@@ -460,7 +460,7 @@ class zoomUser{
 		$setUserAssistantArray['id'] = $userId;
 		$setUserAssistantArray['host_email'] = $userEmail;
 		$setUserAssistantArray['assistant_email'] = $userAssistantEmail;
-		return $this->$sendZoomRequest->sendRequest('user/assistant/set', $setUserAssistantArray);
+		return $this->sendZoomRequest->sendRequest('user/assistant/set', $setUserAssistantArray);
 	}     
 
 	public function deleteUserAssistant(){
@@ -468,21 +468,21 @@ class zoomUser{
 		$deleteUserAssistantArray['id'] = $userId;
 		$deleteUserAssistantArray['host_email'] = $userEmail;
 		$deleteUserAssistantArray['assistant_email'] = $userAssistantEmail;
-		return $this->$sendZoomRequest->sendRequest('user/assistant/delete',$deleteUserAssistantArray);
+		return $this->sendZoomRequest->sendRequest('user/assistant/delete',$deleteUserAssistantArray);
 	}   
 
 	public function revokeSSOToken(){
 		$revokeSSOTokenArray = array();
 		$revokeSSOTokenArray['id'] = $userId;
 		$revokeSSOTokenArray['email'] = $userEmail;
-		return $this->$sendZoomRequest->sendRequest('user/revoketoken', $revokeSSOTokenArray);
+		return $this->sendZoomRequest->sendRequest('user/revoketoken', $revokeSSOTokenArray);
 	}      
 
 	public function deleteUserPermanently(){
 		$deleteUserPermanentlyArray = array();
 		$deleteUserPermanentlyArray['id'] = $userId;
 		$deleteUserPermanentlyArray['email'] = $userEmail;
-		return $this->$sendZoomRequest->sendRequest('user/permanentdelete', $deleteUserPermanentlyArray);
+		return $this->sendZoomRequest->sendRequest('user/permanentdelete', $deleteUserPermanentlyArray);
 	}   
 }
 ?>

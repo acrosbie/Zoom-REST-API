@@ -4,6 +4,7 @@ class zoomRecording{
 	/*Variables for zoomRecording class and their default values*/
 	private $recordingHostId = "";
 	private $recordingMeetingId = "";
+	private $recordingMeetingNumber = "";
 	private $recordingFileId = "";
 	private $recordingFrom = "12/05/2018 09:05 pm";
 	private $recordingTo = "12/25/2018 09:05 pm";
@@ -13,7 +14,7 @@ class zoomRecording{
 
 	/*Construct and destruct*/
 	public function __construct(){}
-	public function __construct(zoomUser $sendNewZoomRequest){
+	public function __construct(sendZoomRequest $sendNewZoomRequest){
 		$this->sendZoomRequest = $sendNewZoomRequest;
 	}
 	public function __destruct(){}
@@ -34,6 +35,15 @@ class zoomRecording{
 
 	public function getRecordingMeetingId(){
 		return $this->recordingMeetingId;
+	}
+
+	/*Get and Set $recordingMeetingNumber*/
+	public function setRecordingMeetingNumber($recordingMeetingNumber){
+		$this->recordingMeetingNumber = $recordingMeetingNumber;
+	}
+
+	public function getRecordingMeetingNumber(){
+		return $this->recordingMeetingNumber;
 	}
 
 	/*Get and Set $recordingFileId*/
@@ -86,36 +96,36 @@ class zoomRecording{
 	public function listRecording(){
 		$listRecordingArray = array();
 		$listRecordingArray['host_id'] = $recordingHostId;
-		$listRecordingArray['meeting_numnber'] = $recordingMeetingId;
+		$listRecordingArray['meeting_numnber'] = $recordingMeetingNumber;
 		$listRecordingArray['from'] = $recordingFrom;
 		$listRecordingArray['to'] = $recordingTo;
 		$listRecordingArray['page_size'] = $recordingPageSize;
 		$listRecordingArray['page_number'] = $recordingPageNumber;
-		return $this->$sendZoomRequest->$sendRequest('recording/list', $listRecordingArray);
+		return $this->sendZoomRequest->sendRequest('recording/list', $listRecordingArray);
 	}
 
 	public function listMCRecording(){
 		$listMCRecordingArray = array();
 		$listMCRecordingArray['host_id'] = $recordingHostId;
-		$listMCRecordingArray['meeting_numnber'] = $recordingMeetingId;
+		$listMCRecordingArray['meeting_numnber'] = $recordingMeetingNumber;
 		$listMCRecordingArray['from'] = $recordingFrom;
 		$listMCRecordingArray['to'] = $recordingTo;
 		$listMCRecordingArray['page_size'] = $recordingPageSize;
 		$listMCRecordingArray['page_number'] = $recordingPageNumber;
-		return $this->$sendZoomRequest->$sendRequest('mc/recording/list', $listMCRecordingArray);
+		return $this->sendZoomRequest->sendRequest('mc/recording/list', $listMCRecordingArray);
 	}
 
 	public function getARecording(){
 		$getARecordingArray = array();
 		$getARecordingArray['meeting_id'] = $recordingMeetingId;
-		return $this->$sendZoomRequest->$sendRequest('recording/get', $getARecordingArray);
+		return $this->sendZoomRequest->sendRequest('recording/get', $getARecordingArray);
 	}
 
 	public function deleteARecording(){
 		$deleteARecordingArray = array();
 		$deleteARecordingArray['meeting_id'] = $recordingMeetingId;
 		$deleteARecordingArray['file_id'] = $recordingFileId;
-		return $this->$sendZoomRequest->$sendRequest('recording/delete', $deleteARecordingArray);
+		return $this->sendZoomRequest->sendRequest('recording/delete', $deleteARecordingArray);
 	}
 }
 

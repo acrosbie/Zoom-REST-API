@@ -17,7 +17,7 @@ class zoomWebinar{
 
 	/*Construct and destruct*/
 	public function __construct(){}
-	public function __construct(zoomUser $sendNewZoomRequest){
+	public function __construct(sendZoomRequest $sendNewZoomRequest){
 		$this->sendZoomRequest = $sendNewZoomRequest;
 	}
 	public function __destruct(){}
@@ -133,14 +133,14 @@ class zoomWebinar{
 		$createAWebinarArray['option_audio'] = $webinarOptionAudio;
 		$createAWebinarArray['agenda'] = $webinarAgenda;
 		$createAWebinarArray['type'] = $webinarType;
-		return $this->sendRequest('webinar/create',$createAWebinarArray);
+		return $this->sendZoomRequest->sendRequest('webinar/create',$createAWebinarArray);
 	}
 
 	public function deleteAWebinar(){
 		$deleteAWebinarArray = array();
 		$deleteAWebinarArray['id'] = $webinarId;
 		$deleteAWebinarArray['host_id'] = $webinarHostId;
-		return $this->sendRequest('webinar/delete',$deleteAWebinarArray);
+		return $this->sendZoomRequest->sendRequest('webinar/delete',$deleteAWebinarArray);
 	}
 
 	public function listWebinars(){
@@ -148,14 +148,14 @@ class zoomWebinar{
 		$listWebinarsArray['host_id'] = $webinarHostId;
 		$listWebinarsArray['page_size'] = $webinarPageSize;
 		$listWebinarsArray['page_number'] = $webinarPageNumber;
-		return $this->sendRequest('webinar/list',$listWebinarsArray);
+		return $this->sendZoomRequest->sendRequest('webinar/list',$listWebinarsArray);
 	}
 
 	public function getWebinarInfo(){
 		$getWebinarInfoArray = array();
 		$getWebinarInfoArray['id'] = $webinarId;
 		$getWebinarInfoArray['host_id'] = $webinarHostId;
-		return $this->sendRequest('webinar/get',$getWebinarInfoArray);
+		return $this->sendZoomRequest->sendRequest('webinar/get',$getWebinarInfoArray);
 	}
 
 	public function updateWebinarInfo(){
@@ -169,35 +169,35 @@ class zoomWebinar{
 		$updateWebinarInfoArray['option_audio'] = $webinarOptionAudio;
 		$updateWebinarInfoArray['agenda'] = $webinarAgenda;
 		$updateWebinarInfoArray['type'] = $webinarType;
-		return $this->sendRequest('webinar/update',$updateWebinarInfoArray);
+		return $this->sendZoomRequest->sendRequest('webinar/update',$updateWebinarInfoArray);
 	}
 
 	public function endAWebinar(){
 		$endAWebinarArray = array();
 		$endAWebinarArray['id'] = $webinarId;
 		$endAWebinarArray['host_id'] = $webinarHostId;
-		return $this->sendRequest('webinar/end',$endAWebinarArray);
+		return $this->sendZoomRequest->sendRequest('webinar/end',$endAWebinarArray);
 	}
 
 	public function getWebinarRegistrationInfo(){
 		$getWebinarRegistrationInfoArray = array();
 		$getWebinarRegistrationInfoArray['id'] = $webinarId;
 		$getWebinarRegistrationInfoArray['host_id'] = $webinarHostId;
-		return $this->sendRequest('webinar/registration', $getWebinarRegistrationInfoArray);
+		return $this->sendZoomRequest->sendRequest('webinar/registration', $getWebinarRegistrationInfoArray);
 	}
 
 	public function getWebinarUUID(){
 		$getWebinarUUIDArray = array();
 		$getWebinarUUIDArray['id'] = $webinarId;
 		$getWebinarUUIDArray['host_id'] = $webinarHostId;
-		return $this->sendRequest('webinar/uuid/list', $getWebinarUUIDArray);
+		return $this->sendZoomRequest->sendRequest('webinar/uuid/list', $getWebinarUUIDArray);
 	}
 
 	public function getEndedWebinarAttendees(){
 		$getEndedWebinarAttendeesArray = array();
 		$getEndedWebinarAttendeesArray['id'] = $webinarId;
 		$getEndedWebinarAttendeesArray['host_id'] = $webinarHostId;
-		return $this->sendRequest('webinar/attendees/list', $getEndedWebinarAttendeesArray);
+		return $this->sendZoomRequest->sendRequest('webinar/attendees/list', $getEndedWebinarAttendeesArray);
 	}
 }
 

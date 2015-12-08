@@ -13,7 +13,7 @@ class zoomReport{
 
 	/*Construct and destruct*/
 	public function __construct(){}
-	public function __construct(zoomUser $sendNewZoomRequest){
+	public function __construct(sendZoomRequest $sendNewZoomRequest){
 		$this->sendZoomRequest = $sendNewZoomRequest;
 	}
 	public function __destruct(){}

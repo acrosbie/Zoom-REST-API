@@ -22,7 +22,7 @@ class zoomMeeting{
 
 	/*Construct and destruct*/
 	public function __construct(){}
-	public function __construct(zoomUser $sendNewZoomRequest){
+	public function __construct(sendZoomRequest $sendNewZoomRequest){
 		$this->sendZoomRequest = $sendNewZoomRequest;
 	}
 	public function __destruct(){}
@@ -176,14 +176,14 @@ class zoomMeeting{
 		$createAMeetingArray['option_host_video'] = $meetingOptionHostVideo;
 		$createAMeetingArray['option_participants_video'] = $meetingOptionsParticipantsVideo;
 		$createAMeetingArray['option_audio'] = $meetingOptionAudio;
-		return $this->$sendZoomRequest->$sendRequest('meeting/create', $createAMeetingArray);
+		return $this->sendZoomRequest->sendRequest('meeting/create', $createAMeetingArray);
 	}
 
 	public function deleteAMeeting(){
 		$deleteAMeetingArray = array();
 		$deleteAMeetingArray['id'] = $meetingId;
 		$deleteAMeetingArray['host_id'] = $meetingHostId;
-		return $this->$sendZoomRequest->$sendRequest('meeting/delete', $deleteAMeetingArray);
+		return $this->sendZoomRequest->sendRequest('meeting/delete', $deleteAMeetingArray);
 	}
 
 	public function listMeetings(){
@@ -191,19 +191,19 @@ class zoomMeeting{
 		$listMeetingsArray['host_id'] = $meetingHostId;
 		$listMeetingsArray['page_size'] = $meetingPageSize;
 		$listMeetingsArray['page_number'] = $meetingPageNumber;
-		return $this->$sendZoomRequest->$sendRequest('meeting/list',$listMeetingsArray);
+		return $this->sendZoomRequest->sendRequest('meeting/list',$listMeetingsArray);
 	}
 
 	public function listLiveMeetings(){
 		$listLiveMeetingsArray = array();
-		return $this->$sendZoomRequest->$sendRequest('meeting/live',$listLiveMeetingsArray);
+		return $this->sendZoomRequest->sendRequest('meeting/live',$listLiveMeetingsArray);
 	}
 
 	public function getMeetingInfo(){
 		$getAMeetingInfoArray = array();
 		$getAMeetingInfoArray['id'] = $meetingId;
 		$getAMeetingInfoArray['host_id'] = $meetingHostId;
-		return $this->$sendZoomRequest->$sendRequest('meeting/get', $getAMeetingInfoArray);
+		return $this->sendZoomRequest->sendRequest('meeting/get', $getAMeetingInfoArray);
 	}
 
 	public function updateMeetingInfo(){
@@ -221,14 +221,14 @@ class zoomMeeting{
 		$updateAMeetingArray['option_host_video'] = $meetingOptionHostVideo;
 		$updateAMeetingArray['option_participants_video'] = $meetingOptionsParticipantsVideo;
 		$updateAMeetingArray['option_audio'] = $meetingOptionAudio;
-		return $this->$sendZoomRequest->$sendRequest('meeting/update', $updateMeetingInfoArray);
+		return $this->sendZoomRequest->sendRequest('meeting/update', $updateMeetingInfoArray);
 	}
 
 	public function endAMeeting(){
 		$endAMeetingArray = array();
 		$endAMeetingArray['id'] = $meetingId;
 		$endAMeetingArray['host_id'] = $meetingHostId;
-		return $this->$sendZoomRequest->$sendRequest('meeting/end', $endAMeetingArray);
+		return $this->sendZoomRequest->sendRequest('meeting/end', $endAMeetingArray);
 	}
 
 }
